@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		function chk() {
+			if(!frm.num.value) {
+				alert("숫자 값이 입력되지 않았습니다.");
+				frm.num.focus();
+				return false;
+			}
+			if(isNaN(frm.num.value)) {
+				alert("값이 입력되었으나, 숫자가 아닙니다.");
+				frm.num.focus();
+				frm.num.value = "";	//입력값 초기화
+				return false;
+			}
+			
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<h1>숫자를 입력하세요.</h1>
+	<!-- Add3 : 서버 호출 -->
+	<form action="Add3" name="frm" method="post" onsubmit="return chk()">
+			 <!-- 만약 5 입력 후 submit하면 num이라는 parameter에 의해 Add3으로 이동함 -->
+		숫자 : <input type="text" name="num"><p>
+		위치 : <input type="text" name="loc"><p>
+			 <input type="submit" value="확인">
+	</form>
+</body>
+</html>
